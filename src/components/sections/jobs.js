@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -17,7 +16,6 @@ const StyledJobsSection = styled.section`
       display: block;
     }
 
-    // Prevent container from jumping
     @media (min-width: 700px) {
       min-height: 340px;
     }
@@ -160,34 +158,53 @@ const StyledTabPanel = styled.div`
     margin-bottom: 25px;
     color: var(--light-slate);
     font-family: var(--font-mono);
+    font-size: var(--fz-sm);
+  }
+  .location {
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    color: var(--light-slate);
+    font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }
 `;
 
 const Jobs = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      jobs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              company
-              location
-              range
-              url
-            }
-            html
-          }
-        }
-      }
-    }
-  `);
-
-  const jobsData = data.jobs.edges;
+  const jobsData = [
+    {
+      frontmatter: {
+        title: 'Software Engineer',
+        company: 'Super Micro Computer, Inc.',
+        location: 'San Jose, CA',
+        range: 'March 2024 - Present',
+        url: 'https://www.supermicro.com/en/',
+      },
+      html: `<ul>
+          <li>Develop full stack applications with React, Node.js, and Express to create internal tools used daily across the global production line</li>
+          <li>Implemented GraphQL with Apollo Server to streamline data fetching and improve API efficiency</li>
+          <li>Manage and deploy Kubernetes on a bare metal server, transitioning the deployment management from Ansible to Helm</li>
+          <li>Increased unit test coverage to over 95% for most of the existing projects using Jest</li>
+          <li>Refactor legacy codebase with modularization and simplifying complex code logic, reducing technical debt</li>
+          <li>Created a CI/CD pipeline using Drone CI to automate deployment and testing of applications, ensuring minimal downtime delivery</li>
+          <li>Debugged and resolved critical production-level bugs, resulting in a reduction in system downtime and improved application stability</li>
+          <li>Design and maintain database services utilizing MariaDB and ScyllaDB, implementing Galera Cluster for syncing, ensuring high availability and data consistency across multiple countries</li>
+          <li>Designed, planned, and built a comprehensive development environment for local testing through Docker containers</li>
+        </ul>
+        `,
+    },
+    {
+      frontmatter: {
+        title: 'Frontend Developer',
+        company: 'Company B',
+        location: 'Location B',
+        range: 'March 2018 - December 2019',
+        url: 'https://companyb.com',
+      },
+      html: '<p>Developed responsive web applications and user interfaces.</p>',
+    },
+    // Add more jobs as needed
+  ];
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -218,10 +235,8 @@ const Jobs = () => {
     }
   };
 
-  // Only re-run the effect if tabFocus changes
   useEffect(() => focusTab(), [tabFocus]);
 
-  // Focus on tabs when using up & down arrow keys
   const onKeyDown = e => {
     switch (e.key) {
       case KEY_CODES.ARROW_UP: {
@@ -244,13 +259,13 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Where I’ve Worked</h2>
+      <h2 className="numbered-heading">Work Experience</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
-            jobsData.map(({ node }, i) => {
-              const { company } = node.frontmatter;
+            jobsData.map(({ frontmatter }, i) => {
+              const { company } = frontmatter;
               return (
                 <StyledTabButton
                   key={i}
@@ -271,9 +286,8 @@ const Jobs = () => {
 
         <StyledTabPanels>
           {jobsData &&
-            jobsData.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
+            jobsData.map(({ frontmatter, html }, i) => {
+              const { title, url, company, range, location } = frontmatter;
 
               return (
                 <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -293,6 +307,7 @@ const Jobs = () => {
                         </a>
                       </span>
                     </h3>
+                    <p className="location">{location}</p>
 
                     <p className="range">{range}</p>
 
