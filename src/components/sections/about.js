@@ -77,19 +77,23 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hi! I'm Grant, a software engineer with a deep passion for developing innovative
-              solutions and constantly learning new technologies in the ever-evolving world of
-              computer science.
+              Hi! I'm <span style={{ color: '#0000ff' }}>Grant</span>, a software engineer with{' '}
+              <span style={{ color: '#0000ff' }}>2 years of professional experience</span> and a
+              deep passion for developing innovative solutions. I'm constantly learning new
+              technologies in the ever-evolving world of computer science.
             </p>
 
             <p>
-              Currently, I work as a full stack developer at Super Micro Computer. I have a strong
-              interest in ML/AI and dedicate time to developing my own personal projects in this
-              field.
+              Currently, I work as a{' '}
+              <span style={{ color: '#0000ff' }}>full stack developer at Super Micro Computer</span>
+              . I have a strong interest in <span style={{ color: '#0000ff' }}>ML/AI</span> and
+              dedicate time to developing my own personal projects in this field.
             </p>
+
             <p>
-              I'm also currently pursuing a Master's degree in Computer Science to further enhance
-              my skills.
+              I'm also currently pursuing a{' '}
+              <span style={{ color: '#0000ff' }}>Master's degree in Computer Science</span> to
+              further enhance my skills.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
