@@ -6,7 +6,7 @@ const IconLinkedin = () => (
     role="img"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor"
+    stroke="#2F4F4F"
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"

@@ -5,7 +5,7 @@ const IconEmailFolder = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor"
+    stroke="#2F4F4F"
     strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"

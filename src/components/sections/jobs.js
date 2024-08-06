@@ -73,9 +73,9 @@ const StyledTabButton = styled.button`
   padding: 0 20px 2px;
   border-left: 2px solid var(--lightest-navy);
   background-color: transparent;
-  color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
-  font-family: var(--font-mono);
-  font-size: var(--fz-xs);
+  color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--dark-slate)')};
+  font-family: var(--font-sans);
+  font-size: var(--fz-s);
   text-align: left;
   white-space: nowrap;
 
@@ -93,7 +93,8 @@ const StyledTabButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--light-navy);
+    background-color: #e0e0e0;
+    color: #0000ff;
   }
 `;
 
@@ -140,7 +141,21 @@ const StyledTabPanel = styled.div`
   max-height: 600px; /* Set the maximum height */
   overflow-y: auto; /* Make the content scrollable */
   padding: 10px 5px;
+  padding-right: 20px;
 
+  scrollbar-color: #c1c1c1 #f1f1f1; // Darker thumb and lighter track
+
+  // For WebKit browsers
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #4a548e; // Lighter track
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #3a3f5e; // Darker thumb
+    border-radius: 10px;
+  }
   ul {
     ${({ theme }) => theme.mixins.fancyList};
   }
@@ -150,7 +165,7 @@ const StyledTabPanel = styled.div`
     font-size: var(--fz-xxl);
     font-weight: 500;
     line-height: 1.3;
-
+    color: var(--dark-slate);
     .company {
       color: var(--green);
     }
@@ -158,7 +173,7 @@ const StyledTabPanel = styled.div`
 
   .range {
     margin-bottom: 25px;
-    color: var(--light-slate);
+    color: var(--dark-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-sm);
   }
@@ -166,7 +181,7 @@ const StyledTabPanel = styled.div`
   .location {
     margin-bottom: 10px;
     margin-top: 10px;
-    color: var(--light-slate);
+    color: var(--dark-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }
@@ -183,16 +198,17 @@ const Jobs = () => {
         url: 'https://www.supermicro.com/en/',
       },
       html: `<ul>
-          <li>Develop full stack applications with React, Node.js, and Express to create internal tools used daily across the global production line</li>
-          <li>Implemented GraphQL with Apollo Server to streamline data fetching and improve API efficiency</li>
-          <li>Manage and deploy Kubernetes on a bare metal server, transitioning the deployment management from Ansible to Helm</li>
-          <li>Increased unit test coverage to over 95% for most of the existing projects using Jest</li>
-          <li>Refactor legacy codebase with modularization and simplifying complex code logic, reducing technical debt</li>
-          <li>Created a CI/CD pipeline using Drone CI to automate deployment and testing of applications, ensuring minimal downtime delivery</li>
-          <li>Debugged and resolved critical production-level bugs, resulting in a reduction in system downtime and improved application stability</li>
-          <li>Design and maintain database services utilizing MariaDB and ScyllaDB, implementing Galera Cluster for syncing, ensuring high availability and data consistency across multiple countries</li>
-          <li>Designed, planned, and built a comprehensive development environment for local testing through Docker containers</li>
-        </ul>
+  <li>Develop <strong>full stack applications</strong> with <strong>React</strong>, <strong>Node.js</strong>, and <strong>Express</strong> to create internal tools used daily across the global production line</li>
+  <li>Implemented <strong>GraphQL</strong> with <strong>Apollo Server</strong> to streamline data fetching and improve API efficiency</li>
+  <li>Manage and deploy <strong>Kubernetes</strong> on a bare metal server, transitioning the deployment management from <strong>Ansible</strong> to <strong>Helm</strong></li>
+  <li>Increased unit test coverage to over 95% for most of the existing projects using <strong>Jest</strong></li>
+  <li>Refactor legacy codebase with <strong>modularization</strong> and simplifying complex code logic, reducing technical debt</li>
+  <li>Created a <strong>CI/CD pipeline</strong> using <strong>Drone CI</strong> to automate deployment and testing of applications, ensuring minimal downtime delivery</li>
+  <li>Debugged and resolved critical production-level bugs, resulting in a reduction in system downtime and improved application stability</li>
+  <li>Design and maintain database services utilizing <strong>MariaDB</strong> and <strong>ScyllaDB</strong>, implementing <strong>Galera Cluster</strong> for syncing, ensuring high availability and data consistency across multiple countries</li>
+  <li>Designed, planned, and built a comprehensive development environment for local testing through <strong>Docker containers</strong></li>
+</ul>
+
         `,
     },
     {
@@ -204,13 +220,14 @@ const Jobs = () => {
         url: 'https://informediq.com/',
       },
       html: `<ul>
-        <li>Optimized extraction algorithms using Ruby on Rails to increase recall and precision rates by 20% for Google OCR data</li>
-        <li>Integrated and tested a new API product using Python that accurately calculates applicant income from various documents</li>
-        <li>Ensured 100% data accuracy for incoming client information by designing and implementing a RESTful API validator</li>
-        <li>Worked on the seamless transition from a monolithic single deployment code base to a microservices architecture</li>
-        <li>Developed and maintained Terraform configurations for consistent and reproducible deployments across environments</li>
-        <li>Implemented customized metrics for each microservice using AWS CloudWatch, enabling real-time monitoring with dashboards</li>
-      </ul>
+    <li>Optimized extraction algorithms using <strong>Ruby on Rails</strong> to increase recall and precision rates by <strong>20%</strong> for <strong>Google OCR</strong> data</li>
+    <li>Integrated and tested a new API product using <strong>Python</strong> that accurately calculates applicant income from various documents</li>
+    <li>Ensured <strong>100% data accuracy</strong> for incoming client information by designing and implementing a <strong>RESTful API</strong> validator</li>
+    <li>Worked on the seamless transition from a monolithic single deployment code base to a <strong>microservices architecture</strong></li>
+    <li>Developed and maintained <strong>Terraform</strong> configurations for consistent and reproducible deployments across environments</li>
+    <li>Implemented customized metrics for each microservice using <strong>AWS CloudWatch</strong>, enabling real-time monitoring with dashboards</li>
+</ul>
+
       `,
     },
     {
@@ -222,10 +239,11 @@ const Jobs = () => {
         url: 'https://www.equifax.com/',
       },
       html: `<ul>
-            <li>Automated new hire workflow through Java microservices to optimize and expedite the onboarding process for employees</li>
-            <li>Utilized Google Cloud Platform’s Firebase, Cloud Firestore, and Kubernetes for secure information storage</li>
-            <li>Created unit tests for each microservice using JUnit and Mockito, improving workflows by ensuring reliability and security</li>
-          </ul>
+    <li>Automated new hire workflow through <strong>Java microservices</strong> to optimize and expedite the onboarding process for employees</li>
+    <li>Utilized <strong>Google Cloud Platform’s Firebase</strong>, <strong>Cloud Firestore</strong>, and <strong>Kubernetes</strong> for secure information storage</li>
+    <li>Created unit tests for each microservice using <strong>JUnit</strong> and <strong>Mockito</strong>, improving workflows by ensuring reliability and security</li>
+</ul>
+
       `,
     },
     {
@@ -237,9 +255,10 @@ const Jobs = () => {
         url: 'https://www.kenwayconsulting.com/',
       },
       html: `<ul>
-            <li>Developed a web application in Angular that calculates each employee’s bonus based on a value-cost projection</li>
-            <li>Integrated and tested API backend services for the web app using HTML, CSS, TypeScript, and Postman, ensuring seamless functionality and user experience</li>
-          </ul>
+    <li>Developed a web application in <strong>Angular</strong> that calculates each employee’s bonus based on a value-cost projection</li>
+    <li>Integrated and tested API backend services for the web app using <strong>HTML</strong>, <strong>CSS</strong>, <strong>TypeScript</strong>, and <strong>Postman</strong>, ensuring seamless functionality and user experience</li>
+</ul>
+
       `,
     },
   ];

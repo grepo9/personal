@@ -1,5 +1,5 @@
 module.exports = {
-  email: 'gc9150000@gmail.com',
+  email: 'grantc2@illinois.edu',
 
   socialMedia: [
     {
@@ -14,7 +14,7 @@ module.exports = {
 
     {
       name: 'Email',
-      url: 'mailto:gc9150000@gmail.com',
+      url: 'mailto:grantc2@illinois.edu',
     },
   ],
 
@@ -23,10 +23,10 @@ module.exports = {
       name: 'About',
       url: '/#jobs',
     },
-    {
-      name: 'Projects',
-      url: '/#projects',
-    },
+    // {
+    //   name: 'Projects',
+    //   url: '/#projects',
+    // },
     {
       name: 'Contact',
       url: '/#contact',

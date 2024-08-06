@@ -9,9 +9,8 @@ import About from './about'; // Ensure the path to About component is correct
 const StyledHeroSection = styled.section`
   display: grid;
   grid-template-columns: 2fr 1fr; /* Allocate more space to the hero content */
-  gap: 150px; /* Increased gap between columns */
   min-height: 100vh;
-  padding: 10px;
+  padding: 5px;
   align-items: start;
   position: relative;
 
@@ -25,9 +24,12 @@ const StyledHeroSection = styled.section`
     padding-bottom: 0px;
     margin-left: -200px;
     h2,
-    h3,
+    h3 {
+      width: 200%; /* Ensure full width for headings and paragraphs */
+      margin-bottom: 10px;
+    }
     p {
-      width: 250%; /* Ensure full width for headings and paragraphs */
+      width: 200%; /* Ensure full width for headings and paragraphs */
       margin-bottom: 10px;
     }
   }
@@ -36,6 +38,7 @@ const StyledHeroSection = styled.section`
     display: flex;
     align-items: center; /* Center content vertically */
     padding-top: 50px; /* Adjust this value to position the content */
+    margin-right: 20px;
   }
 
   h1 {
@@ -77,7 +80,7 @@ const StyledHeroSection = styled.section`
     svg {
       width: 75px;
       height: 75px;
-      color: var(--green);
+      color: var(--dark-slate);
     }
   }
 
@@ -136,7 +139,7 @@ const Hero = () => {
         <Jobs />
       </div>
 
-      <a href="#projects" className="scroll-down-arrow">
+      <a href="#contact" className="scroll-down-arrow">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

@@ -20,10 +20,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
-  }
+
 
   /* Provide basic, default focus styles.*/
   :focus {
@@ -165,7 +162,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--dark-slate);
     line-height: 1.1;
   }
 
@@ -211,38 +208,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .numbered-heading2 {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin: 10px 0 40px;
-    width: 100%;
-    font-size: clamp(26px, 5vw, var(--fz-heading));
-    white-space: nowrap;
-
-    
-    &:after {
-      content: '';
-      display: block;
-      position: relative;
-      top: -5px;
-      width: 300px;
-      height: 1px;
-      margin-left: 20px;
-      background-color: var(--lightest-navy);
-
-      @media (max-width: 1080px) {
-        width: 200px;
-      }
-      @media (max-width: 768px) {
-        width: 100%;
-      }
-      @media (max-width: 600px) {
-        margin-left: 10px;
-      }
-    }
-  }
-
+ 
   img,
   svg,
   .gatsby-image-wrapper {
@@ -277,7 +243,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: #0000FF;
     }
 
     &.inline-link {
@@ -308,7 +274,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0 0 15px 0;
-
+    
     &:last-child,
     &:last-of-type {
       margin: 0;
@@ -388,7 +354,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      background-color: var(--green);
+      background-color: #0000FF;
       color: var(--navy);
       top: 0;
       left: 0;
@@ -413,7 +379,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--slate);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
