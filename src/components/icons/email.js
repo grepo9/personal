@@ -3,16 +3,17 @@ import React from 'react';
 const IconEmailFolder = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    width="60" // Adjust the width as needed
+    height="60" // Adjust the height as needed
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="#2F4F4F"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-folder">
-    <title>Email Folder</title>
-    <path d="M3 4h5l2 3h11v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
-    <path d="M22 6l-10 7L2 6" strokeWidth="1.5"></path>
+    style={{
+      fill: '#000000', // Default fill color
+      transition: 'fill 0.3s', // Smooth transition
+    }}
+    onMouseEnter={e => (e.currentTarget.style.fill = '#0000ff')} // Color on hover
+    onMouseLeave={e => (e.currentTarget.style.fill = '#000000')} // Default color when not hovered
+  >
+    <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" />
   </svg>
 );
 
