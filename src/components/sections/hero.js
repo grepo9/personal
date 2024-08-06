@@ -9,10 +9,11 @@ import About from './about'; // Ensure the path to About component is correct
 const StyledHeroSection = styled.section`
   display: grid;
   grid-template-columns: 2fr 1fr; /* Allocate more space to the hero content */
-  gap: 300px; /* Increased gap between columns */
+  gap: 150px; /* Increased gap between columns */
   min-height: 100vh;
   padding: 10px;
   align-items: start;
+  position: relative;
 
   .hero-content {
     display: flex;
@@ -22,7 +23,7 @@ const StyledHeroSection = styled.section`
     width: 200%; /* Ensure full width */
     padding-left: 0px;
     padding-bottom: 0px;
-    margin-left: -75px;
+    margin-left: -200px;
     h2,
     h3,
     p {
@@ -63,6 +64,31 @@ const StyledHeroSection = styled.section`
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
+  }
+
+  .scroll-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: jump 2s infinite;
+
+    svg {
+      width: 75px;
+      height: 75px;
+      color: var(--green);
+    }
+  }
+
+  @keyframes jump {
+    0%,
+    100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, -10px);
+    }
   }
 `;
 
@@ -109,6 +135,24 @@ const Hero = () => {
       <div className="jobs-content">
         <Jobs />
       </div>
+
+      <a href="#projects" className="scroll-down-arrow">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M11.29 14.46 6 9.17 7.41 7.75l4.59 4.58 4.59-4.58 1.41 1.42-5.29 5.29a1 1 0 0 1-1.42 0Z"
+          />
+          <path
+            fill="currentColor"
+            d="m11.29 19.46-5.29-5.29L7.41 12.75l4.59 4.58 4.59-4.58 1.41 1.42-5.29 5.29a1 1 0 0 1-1.42 0Z"
+          />
+        </svg>
+      </a>
     </StyledHeroSection>
   );
 };

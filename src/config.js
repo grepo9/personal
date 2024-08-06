@@ -14,7 +14,7 @@ module.exports = {
 
     {
       name: 'Email',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'mailto:gc9150000@gmail.com',
     },
   ],
 
@@ -24,7 +24,7 @@ module.exports = {
       url: '/#jobs',
     },
     {
-      name: 'Work',
+      name: 'Projects',
       url: '/#projects',
     },
     {
@@ -34,9 +34,9 @@ module.exports = {
   ],
 
   colors: {
-    green: '#64ffda',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
+    green: '#7E463A',
+    navy: '#7E463A',
+    darkNavy: '#7E463A',
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

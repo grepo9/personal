@@ -87,7 +87,7 @@ const StyledTabButton = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid var (--lightest-navy);
     text-align: center;
   }
 
@@ -129,14 +129,16 @@ const StyledTabPanels = styled.div`
   width: 100%;
   margin-left: 20px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     margin-left: 0;
   }
 `;
 
 const StyledTabPanel = styled.div`
-  width: 100%;
+  width: 200%;
   height: auto;
+  max-height: 600px; /* Set the maximum height */
+  overflow-y: auto; /* Make the content scrollable */
   padding: 10px 5px;
 
   ul {
@@ -160,10 +162,10 @@ const StyledTabPanel = styled.div`
     font-family: var(--font-mono);
     font-size: var(--fz-sm);
   }
+
   .location {
     margin-bottom: 10px;
     margin-top: 10px;
-
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
@@ -177,7 +179,7 @@ const Jobs = () => {
         title: 'Software Engineer',
         company: 'Super Micro Computer, Inc.',
         location: 'San Jose, CA',
-        range: 'March 2024 - Present',
+        range: 'Mar 2024 - Present',
         url: 'https://www.supermicro.com/en/',
       },
       html: `<ul>
@@ -195,15 +197,51 @@ const Jobs = () => {
     },
     {
       frontmatter: {
-        title: 'Frontend Developer',
-        company: 'Company B',
-        location: 'Location B',
-        range: 'March 2018 - December 2019',
-        url: 'https://companyb.com',
+        title: 'Software Engineer',
+        company: 'Informed.IQ',
+        location: 'San Francisco, CA',
+        range: 'Nov 2021 - Mar 2023',
+        url: 'https://informediq.com/',
       },
-      html: '<p>Developed responsive web applications and user interfaces.</p>',
+      html: `<ul>
+        <li>Optimized extraction algorithms using Ruby on Rails to increase recall and precision rates by 20% for Google OCR data</li>
+        <li>Integrated and tested a new API product using Python that accurately calculates applicant income from various documents</li>
+        <li>Ensured 100% data accuracy for incoming client information by designing and implementing a RESTful API validator</li>
+        <li>Worked on the seamless transition from a monolithic single deployment code base to a microservices architecture</li>
+        <li>Developed and maintained Terraform configurations for consistent and reproducible deployments across environments</li>
+        <li>Implemented customized metrics for each microservice using AWS CloudWatch, enabling real-time monitoring with dashboards</li>
+      </ul>
+      `,
     },
-    // Add more jobs as needed
+    {
+      frontmatter: {
+        title: 'Software Engineer Intern',
+        company: 'Equifax',
+        location: 'Remote - St. Louis, MO',
+        range: 'May 2021 - Aug 2021',
+        url: 'https://www.equifax.com/',
+      },
+      html: `<ul>
+            <li>Automated new hire workflow through Java microservices to optimize and expedite the onboarding process for employees</li>
+            <li>Utilized Google Cloud Platform’s Firebase, Cloud Firestore, and Kubernetes for secure information storage</li>
+            <li>Created unit tests for each microservice using JUnit and Mockito, improving workflows by ensuring reliability and security</li>
+          </ul>
+      `,
+    },
+    {
+      frontmatter: {
+        title: 'Software Engineer Intern',
+        company: 'Kenway Consulting',
+        location: 'Remote - Chicago, IL',
+        range: 'Aug 2020 – May 2021',
+        url: 'https://www.kenwayconsulting.com/',
+      },
+      html: `<ul>
+            <li>Developed a web application in Angular that calculates each employee’s bonus based on a value-cost projection</li>
+            <li>Integrated and tested API backend services for the web app using HTML, CSS, TypeScript, and Postman, ensuring seamless functionality and user experience</li>
+          </ul>
+      `,
+    },
   ];
 
   const [activeTabId, setActiveTabId] = useState(0);
@@ -308,7 +346,6 @@ const Jobs = () => {
                       </span>
                     </h3>
                     <p className="location">{location}</p>
-
                     <p className="range">{range}</p>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />

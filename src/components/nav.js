@@ -8,7 +8,7 @@ import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import IconResume from './icons/resume';
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
   position: fixed;
@@ -91,16 +91,15 @@ const StyledLinks = styled.div`
       margin: 0 5px;
       position: relative;
       counter-increment: item 1;
-      font-size: var(--fz-xs);
+      font-size: var(--fz-base);
 
       a {
-        padding: 10px;
+        padding: 25px;
 
         &:before {
-          content: '0' counter(item) '.';
           margin-right: 5px;
           color: var(--green);
-          font-size: var(--fz-xxs);
+          font-size: var(--fz-s);
           text-align: right;
         }
       }
@@ -147,7 +146,8 @@ const Nav = ({ isHome }) => {
 
   const ResumeLink = (
     <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-      Resume
+      <IconResume />
+      <span style={{ marginLeft: '8px' }}></span>
     </a>
   );
 
