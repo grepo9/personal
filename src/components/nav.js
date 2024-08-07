@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   backdrop-filter: blur(10px);
   transition: var(--transition);
   border-bottom: 2px solid #c1c1c1; /* Add thin line for separation */
-  box-shadow: 0 4px 15px -5px var(--navy-shadow); /* Less intense shadow */
+  box-shadow: 0 4px 10px -5px var(--navy-shadow); /* Less intense shadow */
 
   @media (max-width: 1080px) {
     padding: 0 40px;

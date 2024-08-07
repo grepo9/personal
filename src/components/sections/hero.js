@@ -17,7 +17,7 @@ const StyledHeroSection = styled.section`
   .hero-content {
     display: flex;
     flex-direction: column;
-    padding-top: 140px; /* Adjust this value to position the content */
+    padding-top: 175px; /* Adjust this value to position the content */
     padding-right: 20px; /* Add padding to the right */
     width: 200%; /* Ensure full width */
     padding-left: 0px;
@@ -37,7 +37,7 @@ const StyledHeroSection = styled.section`
   .jobs-content {
     display: flex;
     align-items: center; /* Center content vertically */
-    padding-top: 50px; /* Adjust this value to position the content */
+    padding-top: 75px; /* Adjust this value to position the content */
     margin-right: 20px;
   }
 
