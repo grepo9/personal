@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+import { useLocation } from '@reach/router';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';
@@ -9,6 +10,7 @@ import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import IconResume from './icons/resume';
+
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
   position: fixed;
@@ -17,12 +19,14 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: #FFFFF;
+  background-color: #f1f1f1;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
   backdrop-filter: blur(10px);
   transition: var(--transition);
+  border-bottom: 2px solid #c1c1c1; /* Add thin line for separation */
+  box-shadow: 0 4px 15px -5px var(--navy-shadow); /* Less intense shadow */
 
   @media (max-width: 1080px) {
     padding: 0 40px;
@@ -38,7 +42,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: #FFFFF;
+        background-color: #f1f1f1;
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
@@ -95,12 +99,13 @@ const StyledLinks = styled.div`
 
       a {
         padding: 25px;
+        color: var(--dark-slate);
+        transition: color 0.2s, border-bottom 0.2s;
 
-        &:before {
-          margin-right: 5px;
-          color: var(--green);
-          font-size: var(--fz-s);
-          text-align: right;
+        &:hover,
+        &:focus,
+        &.active {
+          color: #0000ff;
         }
       }
     }
@@ -114,6 +119,7 @@ const StyledLinks = styled.div`
 `;
 
 const Nav = ({ isHome }) => {
+  const location = useLocation();
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
@@ -162,7 +168,9 @@ const Nav = ({ isHome }) => {
                 {navLinks &&
                   navLinks.map(({ url, name }, i) => (
                     <li key={i}>
-                      <Link to={url}>{name}</Link>
+                      <Link to={url} className={location.pathname === url ? 'active' : ''}>
+                        {name}
+                      </Link>
                     </li>
                   ))}
               </ol>
@@ -186,7 +194,9 @@ const Nav = ({ isHome }) => {
                     navLinks.map(({ url, name }, i) => (
                       <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                         <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                          <Link to={url}>{name}</Link>
+                          <Link to={url} className={location.pathname === url ? 'active' : ''}>
+                            {name}
+                          </Link>
                         </li>
                       </CSSTransition>
                     ))}
