@@ -71,7 +71,7 @@ const StyledHeroSection = styled.section`
 
   .scroll-down-arrow {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
@@ -139,7 +139,7 @@ const Hero = () => {
         <Jobs />
       </div>
 
-      <a href="#contact" className="scroll-down-arrow">
+      <a href="#projects" className="scroll-down-arrow">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

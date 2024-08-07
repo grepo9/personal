@@ -84,16 +84,16 @@ const About = () => {
             </p>
 
             <p>
-              Currently, I work as a{' '}
-              <span style={{ color: '#0000ff' }}>full stack developer at Super Micro Computer</span>
-              . I have a strong interest in <span style={{ color: '#0000ff' }}>ML/AI</span> and
-              dedicate time to developing my own personal projects in this field.
+              I am currently working as a{' '}
+              <span style={{ color: '#0000ff' }}>Full Stack Developer </span> at{' '}
+              <span style={{ color: '#0000ff' }}> Super Micro Computer </span> while also pursuing a{' '}
+              <span style={{ color: '#0000ff' }}>Master's degree in Computer Science</span> to
+              further enhance my skills and knowledge.
             </p>
 
             <p>
-              I'm also currently pursuing a{' '}
-              <span style={{ color: '#0000ff' }}>Master's degree in Computer Science</span> to
-              further enhance my skills.
+              In my spare time, I’m passionate about <span style={{ color: '#0000ff' }}>ML/AI</span>{' '}
+              and enjoy working on personal projects to explore this exciting field.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
