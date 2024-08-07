@@ -202,9 +202,7 @@ const Jobs = () => {
   <li>Implemented <strong>GraphQL</strong> with <strong>Apollo Server</strong> to streamline data fetching and improve API efficiency</li>
   <li>Manage and deploy <strong>Kubernetes</strong> on a bare metal server, transitioning the deployment management from <strong>Ansible</strong> to <strong>Helm</strong></li>
   <li>Increased unit test coverage to over 95% for most of the existing projects using <strong>Jest</strong></li>
-  <li>Refactor legacy codebase with <strong>modularization</strong> and simplifying complex code logic, reducing technical debt</li>
   <li>Created a <strong>CI/CD pipeline</strong> using <strong>Drone CI</strong> to automate deployment and testing of applications, ensuring minimal downtime delivery</li>
-  <li>Debugged and resolved critical production-level bugs, resulting in a reduction in system downtime and improved application stability</li>
   <li>Design and maintain database services utilizing <strong>MariaDB</strong> and <strong>ScyllaDB</strong>, implementing <strong>Galera Cluster</strong> for syncing, ensuring high availability and data consistency across multiple countries</li>
   <li>Designed, planned, and built a comprehensive development environment for local testing through <strong>Docker containers</strong></li>
 </ul>

@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
+import cover1 from '../../images/cover1.jpg';
+import cover2 from '../../images/cover2.png';
 
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
@@ -157,8 +158,8 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
+    background-color: var(--light-slate);
+    color: var(--dark-navy);
     font-size: var(--fz-lg);
 
     @media (max-width: 768px) {
@@ -250,7 +251,7 @@ const StyledProject = styled.li`
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
-      opacity: 0.25;
+      opacity: 1; /* Make sure image is fully visible */
     }
 
     a {
@@ -283,55 +284,59 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
+        background-color: transparent; /* Make sure the overlay is transparent */
+        mix-blend-mode: normal;
       }
     }
 
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
+      mix-blend-mode: normal; /* Make sure the blend mode is normal */
+      filter: none; /* Remove filter */
 
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
+        filter: none; /* Remove filter for smaller screens */
       }
     }
   }
 `;
+const featuredProjects = [
+  {
+    title: 'Prophet',
+    cover: cover1,
+    tech: ['React', 'JavaScript', 'Python', 'Flask'],
+    github: 'https://github.com/grepo9/restaurantrecommender',
+    external: 'https://github.com/grepo9/restaurantrecommender',
+    cta: 'https://projectone.com/learn-more',
+    description:
+      '<p>Full stack web app that suggests restaurants from the Yelp API using a machine learning prediction model that trains from a user\'s preferences, locations, and previous food choices</p>',
+  },
+  {
+    title: 'Tendance',
+    cover: cover2,
+    tech: ['React', 'Vite', 'TypeScript', 'Node.js', 'PostgreSQL'],
+    github: 'https://github.com/grepo9/Tendance',
+    external: 'https://github.com/grepo9/Tendance',
+    description:
+      '<p>Full stack web app that performs sentiment based stock market analysis and signals when to buy/sell a stock.</p>',
+  },
+  {
+    title: 'Reel Raters',
+    cover: cover1,
+    tech: ['Django', 'Python', 'JavaScript', 'Heroku'],
+    github: 'https://github.com/grepo9/reelraters',
+    external: 'https://github.com/grepo9/reelraters',
+    cta: 'https://projectone.com/learn-more',
+    description:
+      '<p>Django project that allows users to add movies and rate them to a personal list, pulling from the TheMovieDB API</p>',
+  },
 
+  // Add more projects as needed
+];
 const Featured = () => {
-  const data = useStaticQuery(graphql`
-    {
-      featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
-        sort: { fields: [frontmatter___date], order: ASC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              cover {
-                childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-                }
-              }
-              tech
-              github
-              external
-              cta
-            }
-            html
-          }
-        }
-      }
-    }
-  `);
-
-  const featuredProjects = data.featured.edges.filter(({ node }) => node);
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -348,67 +353,69 @@ const Featured = () => {
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Things I've Built
       </h2>
 
       <StyledProjectsGrid>
-        {featuredProjects &&
-          featuredProjects.map(({ node }, i) => {
-            const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
-            const image = getImage(cover);
+        {featuredProjects.map((project, i) => {
+          const { title, cover, tech, github, external, description } = project;
+          const image = getImage(cover);
 
-            return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
-                <div className="project-content">
-                  <div>
-                    <p className="project-overline">Featured Project</p>
+          return (
+            <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+              <div className="project-content">
+                <div>
+                  <p className="project-overline">Featured Project</p>
 
-                    <h3 className="project-title">
-                      <a href={external}>{title}</a>
-                    </h3>
+                  <h3 className="project-title">
+                    <a href={external}>{title}</a>
+                  </h3>
 
-                    <div
-                      className="project-description"
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                  <div
+                    className="project-description"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
 
-                    {tech.length && (
-                      <ul className="project-tech-list">
-                        {tech.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </ul>
+                  {tech.length && (
+                    <ul className="project-tech-list">
+                      {tech.map((tech, i) => (
+                        <li key={i}>{tech}</li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="project-links">
+                    {/* {cta && (
+                      <a href={cta} aria-label="Course Link" className="cta">
+                        Learn More
+                      </a>
+                    )} */}
+                    {github && (
+                      <a href={github} aria-label="GitHub Link">
+                        <Icon name="GitHub" />
+                      </a>
                     )}
-
-                    <div className="project-links">
-                      {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
-                        </a>
-                      )}
-                      {github && (
-                        <a href={github} aria-label="GitHub Link">
-                          <Icon name="GitHub" />
-                        </a>
-                      )}
-                      {external && !cta && (
-                        <a href={external} aria-label="External Link" className="external">
-                          <Icon name="External" />
-                        </a>
-                      )}
-                    </div>
+                    {/* {external && !cta && (
+                      <a href={external} aria-label="External Link" className="external">
+                        <Icon name="External" />
+                      </a>
+                    )} */}
                   </div>
                 </div>
+              </div>
 
-                <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
+              <div className="project-image">
+                <a href={external ? external : github ? github : '#'}>
+                  {image ? (
                     <GatsbyImage image={image} alt={title} className="img" />
-                  </a>
-                </div>
-              </StyledProject>
-            );
-          })}
+                  ) : (
+                    <img src={cover} alt={title} className="img" />
+                  )}
+                </a>
+              </div>
+            </StyledProject>
+          );
+        })}
       </StyledProjectsGrid>
     </section>
   );
