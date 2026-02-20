@@ -60,11 +60,11 @@ const About = () => {
   }, []);
 
   const skills = [
+    'Python',
     'TypeScript',
     'React',
     'Kubernetes',
     'Node.js',
-    'Python',
     'Docker',
     'Ruby',
     'PostgreSQL',
@@ -78,17 +78,17 @@ const About = () => {
           <div>
             <p>
               Hi! I'm <span style={{ color: '#0000ff' }}>Grant</span>, a software engineer with{' '}
-              <span style={{ color: '#0000ff' }}>2 years of professional experience</span> and a
+              <span style={{ color: '#0000ff' }}>several years of professional experience</span> and a
               deep passion for developing innovative solutions. I'm constantly learning new
               technologies in the ever-evolving world of computer science.
             </p>
 
             <p>
-              I am currently working as a{' '}
-              <span style={{ color: '#0000ff' }}>Full Stack Developer </span> at{' '}
-              <span style={{ color: '#0000ff' }}> Super Micro Computer </span> while also pursuing a{' '}
-              <span style={{ color: '#0000ff' }}>Master's degree in Computer Science</span> to
-              further enhance my skills and knowledge.
+              I am currently a <span style={{ color: '#0000ff' }}>Software Engineer, Backend</span> on
+              the Core Product Team at <span style={{ color: '#0000ff' }}>Otter.ai</span>. I recently
+              completed my <span style={{ color: '#0000ff' }}>Master of Computer Science</span> at the
+              University of Illinois Urbana-Champaign (January 2024 – January 2026) while working
+              full-time.
             </p>
 
             <p>

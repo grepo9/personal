@@ -191,21 +191,41 @@ const Jobs = () => {
   const jobsData = [
     {
       frontmatter: {
+        title: 'Software Engineer, Backend – Core Product Team',
+        company: 'Otter.ai',
+        location: 'Mountain View, CA',
+        range: 'October 2024 - Present',
+        url: 'https://otter.ai/',
+      },
+      html: `<ul>
+  <li>Built and launched <strong>Daily Digest</strong>, an AI-powered daily email aggregating action items, summaries, and upcoming meetings into a personalized productivity view</li>
+  <li>Optimized a high-traffic API powering the product's main navigation, improving latency by <strong>60%</strong> and significantly reducing database load through query and serializer refactoring</li>
+  <li>Drove DB migration and data-lifecycle work, removing ~80% of ephemeral data and reducing database load through safe table decoupling and purge execution</li>
+  <li>Primary backend owner of Otter's email infrastructure, managing multiple high-volume email surfaces with complex business logic, scheduling, experimentation, and suppression rules</li>
+  <li>Contributed to a side-by-side <strong>LLM evaluation</strong> project that enables users to compare and choose between multiple AI-generated meeting overviews</li>
+  <li>Served as frontline <strong>KTLO</strong> owner for our team, resolving production issues and maintaining reliability across critical product paths</li>
+  <li>Mentored engineers on backend systems, improving onboarding speed and increasing team autonomy</li>
+</ul>
+
+        `,
+    },
+    {
+      frontmatter: {
         title: 'Software Engineer',
         company: 'Super Micro Computer, Inc.',
         location: 'San Jose, CA',
-        range: 'Mar 2024 - Present',
+        range: 'March 2024 - October 2024',
         url: 'https://www.supermicro.com/en/',
       },
       html: `<ul>
-  <li>Develop <strong>full stack applications</strong> with <strong>React</strong>, <strong>Node.js</strong>, and <strong>Express</strong> to create internal tools used daily across the global production line</li>
+  <li>Developed <strong>full stack applications</strong> with <strong>React</strong>, <strong>Node.js</strong>, and <strong>Express</strong> to create internal tools used daily across the global production line</li>
   <li>Implemented <strong>GraphQL</strong> with <strong>Apollo Server</strong> to streamline data fetching and improve API efficiency</li>
-  <li>Manage and deploy <strong>Kubernetes</strong> on a bare metal server, transitioning the deployment management from <strong>Ansible</strong> to <strong>Helm</strong></li>
+  <li>Managed and deployed <strong>Kubernetes</strong> on a bare metal server, transitioning the deployment management from <strong>Ansible</strong> to <strong>Helm</strong></li>
   <li>Increased unit test coverage to over 95% for most of the existing projects using <strong>Jest</strong></li>
-  <li>Refactor legacy codebase with <strong>modularization</strong> and simplifying complex code logic, reducing technical debt</li>
+  <li>Refactored legacy codebase with <strong>modularization</strong> and simplifying complex code logic, reducing technical debt</li>
   <li>Created a <strong>CI/CD pipeline</strong> using <strong>Drone CI</strong> to automate deployment and testing of applications, ensuring minimal downtime delivery</li>
   <li>Debugged and resolved critical production-level bugs, resulting in a reduction in system downtime and improved application stability</li>
-  <li>Design and maintain database services utilizing <strong>MariaDB</strong> and <strong>ScyllaDB</strong>, implementing <strong>Galera Cluster</strong> for syncing, ensuring high availability and data consistency across multiple countries</li>
+  <li>Designed and maintained database services utilizing <strong>MariaDB</strong> and <strong>ScyllaDB</strong>, implementing <strong>Galera Cluster</strong> for syncing, ensuring high availability and data consistency across multiple countries</li>
   <li>Designed, planned, and built a comprehensive development environment for local testing through <strong>Docker containers</strong></li>
 </ul>
 
@@ -216,12 +236,12 @@ const Jobs = () => {
         title: 'Software Engineer',
         company: 'Informed.IQ',
         location: 'San Francisco, CA',
-        range: 'Nov 2021 - Mar 2023',
+        range: 'November 2021 - March 2023',
         url: 'https://informediq.com/',
       },
       html: `<ul>
-    <li>Optimized extraction algorithms using <strong>Ruby on Rails</strong> to increase recall and precision rates by <strong>20%</strong> for <strong>Google OCR</strong> data</li>
-    <li>Integrated and tested a new API product using <strong>Python</strong> that accurately calculates applicant income from various documents</li>
+    <li>Optimized extraction algorithms to increase recall and precision rates by <strong>20%</strong> for <strong>Google OCR</strong> data</li>
+    <li>Integrated and tested a new API product that accurately calculates applicant income from various documents</li>
     <li>Ensured <strong>100% data accuracy</strong> for incoming client information by designing and implementing a <strong>RESTful API</strong> validator</li>
     <li>Worked on the seamless transition from a monolithic single deployment code base to a <strong>microservices architecture</strong></li>
     <li>Developed and maintained <strong>Terraform</strong> configurations for consistent and reproducible deployments across environments</li>

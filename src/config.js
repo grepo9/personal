@@ -1,5 +1,5 @@
 module.exports = {
-  email: 'grantc2@illinois.edu',
+  email: 'grantc9150@gmail.com',
 
   socialMedia: [
     {
@@ -14,7 +14,7 @@ module.exports = {
 
     {
       name: 'Email',
-      url: 'mailto:grantc2@illinois.edu',
+      url: 'mailto:grantc9150@gmail.com',
     },
   ],
 
