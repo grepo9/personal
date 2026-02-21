@@ -77,23 +77,25 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hi! I'm <span style={{ color: '#0000ff' }}>Grant</span>, a software engineer with{' '}
-              <span style={{ color: '#0000ff' }}>several years of professional experience</span> and a
-              deep passion for developing innovative solutions. I'm constantly learning new
+              Hi! I'm <span style={{ color: 'var(--green)' }}>Grant</span>, a software engineer with{' '}
+              <span style={{ color: 'var(--green)' }}>3+ years of professional experience</span> and
+              a deep passion for developing innovative solutions. I'm constantly learning new
               technologies in the ever-evolving world of computer science.
             </p>
 
             <p>
-              I am currently a <span style={{ color: '#0000ff' }}>Software Engineer, Backend</span> on
-              the Core Product Team at <span style={{ color: '#0000ff' }}>Otter.ai</span>. I recently
-              completed my <span style={{ color: '#0000ff' }}>Master of Computer Science</span> at the
-              University of Illinois Urbana-Champaign (January 2024 – January 2026) while working
-              full-time.
+              I am currently a{' '}
+              <span style={{ color: 'var(--green)' }}>Software Engineer, Backend</span> on the Core
+              Product Team at <span style={{ color: 'var(--green)' }}>Otter.ai</span>. I recently
+              completed my <span style={{ color: 'var(--green)' }}>Master of Computer Science</span>{' '}
+              at the University of Illinois Urbana-Champaign (January 2024 – January 2026) while
+              working full-time.
             </p>
 
             <p>
-              In my spare time, I’m passionate about <span style={{ color: '#0000ff' }}>ML/AI</span>{' '}
-              and enjoy working on personal projects to explore this exciting field.
+              In my spare time, I’m passionate about{' '}
+              <span style={{ color: 'var(--green)' }}>ML/AI</span> and enjoy working on personal
+              projects to explore this exciting field.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

@@ -243,7 +243,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: #0000FF;
+      color: var(--green);
     }
 
     &.inline-link {
@@ -354,7 +354,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      background-color: #0000FF;
+      background-color: var(--green);
       color: var(--navy);
       top: 0;
       left: 0;

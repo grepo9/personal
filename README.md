@@ -1,4 +1,6 @@
+## 🙏 Acknowledgments
 
+This project was forked from [Brittany Chiang](https://github.com/bchiang7)'s [v4 portfolio](https://github.com/bchiang7/v4)
 
 ## 🛠 Installation & Set Up
 

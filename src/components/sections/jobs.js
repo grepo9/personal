@@ -93,8 +93,8 @@ const StyledTabButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #d3d3d3;
-    color: #0000ff;
+    background-color: var(--light-navy);
+    color: var(--green);
   }
 `;
 
@@ -143,17 +143,17 @@ const StyledTabPanel = styled.div`
   padding: 10px 5px;
   padding-right: 20px;
 
-  scrollbar-color: #c1c1c1 #f1f1f1; // Darker thumb and lighter track
+  scrollbar-color: var(--dark-slate) var(--light-navy);
 
   // For WebKit browsers
   &::-webkit-scrollbar {
     width: 8px;
   }
   &::-webkit-scrollbar-track {
-    background: #4a548e; // Lighter track
+    background: var(--light-navy);
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #3a3f5e; // Darker thumb
+    background-color: var(--dark-slate)
     border-radius: 10px;
   }
   ul {
@@ -165,7 +165,7 @@ const StyledTabPanel = styled.div`
     font-size: var(--fz-xxl);
     font-weight: 500;
     line-height: 1.3;
-    color: var(--dark-slate);
+    color: var(--lightest-slate);
     .company {
       color: var(--green);
     }
@@ -173,7 +173,7 @@ const StyledTabPanel = styled.div`
 
   .range {
     margin-bottom: 25px;
-    color: var(--dark-slate);
+    color: var(--slate);
     font-family: var(--font-mono);
     font-size: var(--fz-sm);
   }
@@ -181,7 +181,7 @@ const StyledTabPanel = styled.div`
   .location {
     margin-bottom: 10px;
     margin-top: 10px;
-    color: var(--dark-slate);
+    color: var(--slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }

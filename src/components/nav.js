@@ -19,13 +19,13 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: #f1f1f1;
+  background-color: var(--navy);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
   backdrop-filter: blur(10px);
   transition: var(--transition);
-  border-bottom: 2px solid #c1c1c1; /* Add thin line for separation */
+  border-bottom: 1px solid var(--light-navy);
   box-shadow: 0 4px 10px -5px var(--navy-shadow); /* Less intense shadow */
 
   @media (max-width: 1080px) {
@@ -42,7 +42,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: #f1f1f1;
+        background-color: var(--navy);
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
@@ -61,7 +61,7 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: var(--dark-slate);
+  color: var(--light-slate);
   font-family: var(--font-sans);
   counter-reset: item 0;
   z-index: 12;
@@ -99,13 +99,13 @@ const StyledLinks = styled.div`
 
       a {
         padding: 25px;
-        color: var(--dark-slate);
+        color: var(--light-slate);
         transition: color 0.2s, border-bottom 0.2s;
 
         &:hover,
         &:focus,
         &.active {
-          color: #0000ff;
+          color: var(--green);
         }
       }
     }
