@@ -7,7 +7,7 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
+  max-width: 600px;
 
   .inner {
     display: flex;
@@ -188,6 +188,40 @@ const StyledTabPanel = styled.div`
 `;
 
 const Jobs = () => {
+  const educationData = [
+    {
+      frontmatter: {
+        title: 'Master of Computer Science',
+        company: 'University of Illinois Urbana-Champaign',
+        tabLabel: 'Master\'s',
+        location: 'Urbana, IL',
+        range: 'January 2024 – January 2026',
+        url: 'https://cs.illinois.edu/',
+      },
+      html: `<ul>
+    <li>Major in <strong style="color: var(--lightest-slate)">Computer Science</strong></li>
+    <li>Completed program while working full-time as a Software Engineer</li>
+</ul>
+      `,
+    },
+    {
+      frontmatter: {
+        title: 'Bachelor of Science',
+        company: 'University of Illinois Urbana-Champaign',
+        tabLabel: 'Bachelor\'s',
+        location: 'Urbana, IL',
+        range: 'Aug 2018 – May 2021',
+        url: 'https://cs.illinois.edu/',
+      },
+      html: `<ul>
+    <li>Major in <strong style="color: var(--lightest-slate)">Computer Science</strong> and <strong style="color: var(--lightest-slate)">Statistics</strong></li>
+    <li>Elected to overload coursework to graduate one year early</li>
+    <li>Spent two semesters on the City Scholars program simultaneously completing coursework and an internship to offset education costs</li>
+</ul>
+      `,
+    },
+  ];
+
   const jobsData = [
     {
       frontmatter: {
@@ -283,11 +317,19 @@ const Jobs = () => {
     },
   ];
 
+  const [activeCategory, setActiveCategory] = useState('work');
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const activeData = activeCategory === 'work' ? jobsData : educationData;
+
+  const handleCategoryChange = category => {
+    setActiveCategory(category);
+    setActiveTabId(0);
+    setTabFocus(null);
+  };
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -336,62 +378,96 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Work Experience</h2>
+      <h2 className="numbered-heading">
+        <span
+          role="button"
+          tabIndex="0"
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {handleCategoryChange('work');}
+          }}
+          style={{
+            cursor: 'pointer',
+            color: activeCategory === 'work' ? 'var(--lightest-slate)' : 'var(--dark-slate)',
+            borderBottom:
+              activeCategory === 'work' ? '2px solid var(--green)' : '2px solid transparent',
+            paddingBottom: '3px',
+            transition: 'color 0.25s, border-color 0.25s',
+          }}
+          onClick={() => handleCategoryChange('work')}>
+          Work Experience
+        </span>
+        <span style={{ color: 'var(--dark-slate)', margin: '0 10px' }}>|</span>
+        <span
+          role="button"
+          tabIndex="0"
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {handleCategoryChange('education');}
+          }}
+          style={{
+            cursor: 'pointer',
+            color: activeCategory === 'education' ? 'var(--lightest-slate)' : 'var(--dark-slate)',
+            borderBottom:
+              activeCategory === 'education' ? '2px solid var(--green)' : '2px solid transparent',
+            paddingBottom: '3px',
+            transition: 'color 0.25s, border-color 0.25s',
+          }}
+          onClick={() => handleCategoryChange('education')}>
+          Education
+        </span>
+      </h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
-          {jobsData &&
-            jobsData.map(({ frontmatter }, i) => {
-              const { company } = frontmatter;
-              return (
-                <StyledTabButton
-                  key={i}
-                  isActive={activeTabId === i}
-                  onClick={() => setActiveTabId(i)}
-                  ref={el => (tabs.current[i] = el)}
-                  id={`tab-${i}`}
-                  role="tab"
-                  tabIndex={activeTabId === i ? '0' : '-1'}
-                  aria-selected={activeTabId === i ? true : false}
-                  aria-controls={`panel-${i}`}>
-                  <span>{company}</span>
-                </StyledTabButton>
-              );
-            })}
+          {activeData.map(({ frontmatter }, i) => {
+            const { company, tabLabel } = frontmatter;
+            return (
+              <StyledTabButton
+                key={i}
+                isActive={activeTabId === i}
+                onClick={() => setActiveTabId(i)}
+                ref={el => (tabs.current[i] = el)}
+                id={`tab-${i}`}
+                role="tab"
+                tabIndex={activeTabId === i ? '0' : '-1'}
+                aria-selected={activeTabId === i ? true : false}
+                aria-controls={`panel-${i}`}>
+                <span>{tabLabel || company}</span>
+              </StyledTabButton>
+            );
+          })}
           <StyledHighlight activeTabId={activeTabId} />
         </StyledTabList>
 
         <StyledTabPanels>
-          {jobsData &&
-            jobsData.map(({ frontmatter, html }, i) => {
-              const { title, url, company, range, location } = frontmatter;
+          {activeData.map(({ frontmatter, html }, i) => {
+            const { title, url, company, range, location } = frontmatter;
 
-              return (
-                <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
-                  <StyledTabPanel
-                    id={`panel-${i}`}
-                    role="tabpanel"
-                    tabIndex={activeTabId === i ? '0' : '-1'}
-                    aria-labelledby={`tab-${i}`}
-                    aria-hidden={activeTabId !== i}
-                    hidden={activeTabId !== i}>
-                    <h3>
-                      <span>{title}</span>
-                      <span className="company">
-                        &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
-                          {company}
-                        </a>
-                      </span>
-                    </h3>
-                    <p className="location">{location}</p>
-                    <p className="range">{range}</p>
+            return (
+              <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
+                <StyledTabPanel
+                  id={`panel-${i}`}
+                  role="tabpanel"
+                  tabIndex={activeTabId === i ? '0' : '-1'}
+                  aria-labelledby={`tab-${i}`}
+                  aria-hidden={activeTabId !== i}
+                  hidden={activeTabId !== i}>
+                  <h3>
+                    <span>{title}</span>
+                    <span className="company">
+                      &nbsp;@&nbsp;
+                      <a href={url} className="inline-link">
+                        {company}
+                      </a>
+                    </span>
+                  </h3>
+                  <p className="location">{location}</p>
+                  <p className="range">{range}</p>
 
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
-                  </StyledTabPanel>
-                </CSSTransition>
-              );
-            })}
+                  <div dangerouslySetInnerHTML={{ __html: html }} />
+                </StyledTabPanel>
+              </CSSTransition>
+            );
+          })}
         </StyledTabPanels>
       </div>
     </StyledJobsSection>
