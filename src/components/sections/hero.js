@@ -41,6 +41,10 @@ const StyledHeroSection = styled.section`
     margin-right: 20px;
   }
 
+  .big-heading {
+    color: #ffffff;
+  }
+
   h1 {
     margin: 0 0 30px 4px;
     color: var(--green);
