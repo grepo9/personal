@@ -95,7 +95,7 @@ const About = () => {
             <p>
               In my spare time, I’m passionate about{' '}
               <span style={{ color: 'var(--green)' }}>ML/AI</span> and enjoy working on personal
-              projects to explore this exciting field.
+              projects to explore this exciting field. I also enjoy playing golf.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
