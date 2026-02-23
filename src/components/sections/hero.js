@@ -8,37 +8,67 @@ import About from './about'; // Ensure the path to About component is correct
 
 const StyledHeroSection = styled.section`
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Allocate more space to the hero content */
-  min-height: 100vh;
+  grid-template-columns: 1fr;
   padding: 5px;
   align-items: start;
   position: relative;
+  overflow-x: hidden;
+
+  @media (min-width: 769px) {
+    grid-template-columns: 2fr 1fr;
+    min-height: 100vh;
+  }
 
   .hero-content {
     display: flex;
     flex-direction: column;
-    padding-top: 175px; /* Adjust this value to position the content */
-    padding-right: 20px; /* Add padding to the right */
-    width: 200%; /* Ensure full width */
-    padding-left: 0px;
+    padding-top: 100px;
+    padding-right: 15px;
+    padding-left: 15px;
     padding-bottom: 0px;
-    margin-left: -200px;
+    width: 100%;
+    margin-left: 0;
+
+    @media (min-width: 769px) {
+      padding-top: 175px;
+      padding-right: 20px;
+      padding-left: 0px;
+      width: 200%;
+      margin-left: -200px;
+    }
+
     h2,
     h3 {
-      width: 200%; /* Ensure full width for headings and paragraphs */
+      width: 100%;
       margin-bottom: 10px;
+
+      @media (min-width: 769px) {
+        width: 200%;
+      }
     }
     p {
-      width: 200%; /* Ensure full width for headings and paragraphs */
+      width: 100%;
       margin-bottom: 10px;
+
+      @media (min-width: 769px) {
+        width: 200%;
+      }
     }
   }
 
   .jobs-content {
     display: flex;
-    align-items: center; /* Center content vertically */
-    padding-top: 75px; /* Adjust this value to position the content */
-    margin-right: 20px;
+    align-items: center;
+    padding: 20px 15px 0;
+    width: 100%;
+
+    @media (min-width: 769px) {
+      padding-top: 75px;
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 20px;
+      width: auto;
+    }
   }
 
   .big-heading {

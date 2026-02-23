@@ -44,6 +44,7 @@ const Head = ({ title, description, image }) => {
     <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
       <html lang="en" />
 
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 

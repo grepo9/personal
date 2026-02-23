@@ -9,6 +9,11 @@ import { usePrefersReducedMotion } from '@hooks';
 const StyledJobsSection = styled.section`
   max-width: 600px;
 
+  @media (max-width: 768px) {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .inner {
     display: flex;
 
@@ -138,6 +143,10 @@ const StyledTabPanels = styled.div`
 const StyledTabPanel = styled.div`
   width: 200%;
   height: auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   max-height: 600px; /* Set the maximum height */
   overflow-y: auto; /* Make the content scrollable */
   padding: 10px 5px;
@@ -383,7 +392,9 @@ const Jobs = () => {
           role="button"
           tabIndex="0"
           onKeyDown={e => {
-            if (e.key === 'Enter' || e.key === ' ') {handleCategoryChange('work');}
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleCategoryChange('work');
+            }
           }}
           style={{
             cursor: 'pointer',
@@ -401,7 +412,9 @@ const Jobs = () => {
           role="button"
           tabIndex="0"
           onKeyDown={e => {
-            if (e.key === 'Enter' || e.key === ' ') {handleCategoryChange('education');}
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleCategoryChange('education');
+            }
           }}
           style={{
             cursor: 'pointer',

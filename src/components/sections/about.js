@@ -8,6 +8,10 @@ const StyledAboutSection = styled.section`
   max-width: 900px;
   margin-top: -100px; /* Add margin to the top to ensure spacing */
 
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -27,6 +31,10 @@ const StyledText = styled.div`
     margin: 20px 0 0 0;
     overflow: hidden;
     list-style: none;
+
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+    }
 
     li {
       position: relative;
