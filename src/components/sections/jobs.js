@@ -7,12 +7,8 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 600px;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
+  max-width: 100%;
+  overflow-x: hidden;
 
   .inner {
     display: flex;
@@ -141,12 +137,8 @@ const StyledTabPanels = styled.div`
 `;
 
 const StyledTabPanel = styled.div`
-  width: 200%;
+  width: 100%;
   height: auto;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
   max-height: 600px; /* Set the maximum height */
   overflow-y: auto; /* Make the content scrollable */
   padding: 10px 5px;

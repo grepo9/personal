@@ -13,9 +13,11 @@ const StyledHeroSection = styled.section`
   align-items: start;
   position: relative;
   overflow-x: hidden;
+  max-width: 100% !important;
 
   @media (min-width: 769px) {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
     min-height: 100vh;
   }
 
@@ -33,26 +35,18 @@ const StyledHeroSection = styled.section`
       padding-top: 175px;
       padding-right: 20px;
       padding-left: 0px;
-      width: 200%;
-      margin-left: -200px;
+      width: 100%;
+      margin-left: 0;
     }
 
     h2,
     h3 {
       width: 100%;
       margin-bottom: 10px;
-
-      @media (min-width: 769px) {
-        width: 200%;
-      }
     }
     p {
       width: 100%;
       margin-bottom: 10px;
-
-      @media (min-width: 769px) {
-        width: 200%;
-      }
     }
   }
 
@@ -61,13 +55,15 @@ const StyledHeroSection = styled.section`
     align-items: center;
     padding: 20px 15px 0;
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
 
     @media (min-width: 769px) {
       padding-top: 75px;
       padding-left: 0;
       padding-right: 0;
       margin-right: 20px;
-      width: auto;
+      width: 100%;
     }
   }
 
